@@ -1,7 +1,7 @@
 import java.time.LocalDate;
 import java.util.*;
 
-public class Account extends Client {
+public class PremiumAccount extends Client {
     /*Possible issues to consider:
     * Repeat of names (how to handle and differentiate)
     * */
@@ -9,7 +9,7 @@ public class Account extends Client {
     //Key is "firstName" Value is Client class
     private boolean isActive;
     private LocalDate dateOfBirth;
-    private String email;
+
     private String userName;
     private char[] passWord;
     final boolean isAdmin = false;
@@ -18,19 +18,9 @@ public class Account extends Client {
 
     /*CONSTRUCTORS*/
 
-    public Account() {
+    public PremiumAccount() {
         super();
         clientDataBase = new HashMap<>();
-        Client client = new Client();
-        Scanner newClient = new Scanner((Readable) client);
-
-        while(newClient.hasNextLine()){
-            String fullName = newClient.nextLine();
-            String[] clientData = fullName.split(" ");
-            String firstName = clientData[0];
-            String lastName = clientData[1];
-
-        }
 
     }
 
@@ -67,13 +57,7 @@ public class Account extends Client {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getEmail() {
-        return email;
-    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public String getUserName() {
         return userName;

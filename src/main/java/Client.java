@@ -1,6 +1,8 @@
-public class Client {
+public abstract class Client {
+
     private String firstName;
     private String lastName;
+    private String email;
 
 
     /*CONSTRUCTORS*/
@@ -8,9 +10,10 @@ public class Client {
 
     }
 
-    public Client(String firstName, String lastName) {
+    public Client(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email = email;
     }
     /*METHODS*/
 
@@ -27,17 +30,23 @@ public class Client {
         return firstName;
     }
 
-    public Client setFirstName(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
-        return null;
     }
 
     public String getLastName() {
         return lastName;
     }
 
-    public Client setLastName(String lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
-        return null;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

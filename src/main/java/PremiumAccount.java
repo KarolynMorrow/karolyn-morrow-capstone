@@ -1,5 +1,8 @@
 import java.time.LocalDate;
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class PremiumAccount extends Client {
     /*Possible issues to consider:
@@ -9,7 +12,7 @@ public class PremiumAccount extends Client {
     //Key is Client class Value is PremiumAccount class
     private boolean isActive;
     private LocalDate dateOfBirth;
-
+    private String email;
     private String userName;
     private char[] passWord;
 
@@ -18,20 +21,20 @@ public class PremiumAccount extends Client {
     private static Integer userId = 1;
 
     /*CONSTRUCTORS*/
-//obtain input from client class and input into clientDataBase hashMap as premiumAccountInfo
-    public PremiumAccount() {
-        super();
-        clientDataBase = new HashMap<>();
-        Scanner clientData = new Scanner(System.in);
-        String firstName = clientData.next();
-        String lastName = clientData.next();
-        String email = clientData.next();
-        System.out.println("Please input a username: ");
-        userName = clientData.next();
+//obtain input from client class constructor and input into clientDataBase hashMap with email and password as premiumAccountInfo
 
-        PremiumAccount premiumAccountInfo = new PremiumAccount();
+    public PremiumAccount(String firstName, String lastName, String email, String userName) {
+        super(firstName, lastName, email);
+        this.userName = userName;
+    }
+
+    public void addPremiumClient(PremiumAccount premiumAccountInfo) {
         clientDataBase.put(userId, premiumAccountInfo);
         userId++;
+    }
+
+    public PremiumAccount() {
+        super();
     }
 
     @Override
@@ -82,6 +85,14 @@ public class PremiumAccount extends Client {
         this.dateOfBirth = dateOfBirth;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getUserName() {
         return userName;
@@ -120,4 +131,5 @@ public class PremiumAccount extends Client {
 
 
     }
+
 }

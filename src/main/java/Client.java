@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public abstract class Client {
 
     private String firstName;
@@ -18,13 +16,9 @@ public abstract class Client {
 
     //take input from client and input into either guestAccount object or premiumAccount object
     public Client() {
-        System.out.println("Please input your name and email: ");
-        Scanner input = new Scanner(System.in);
-        String firstName = input.nextLine();
-        String lastName = input.nextLine();
-        String email = input.nextLine();
+
     }
-    /*METHODS*/;
+    /*METHODS*/
 
     public abstract void returnName();
 

@@ -3,45 +3,70 @@ import java.util.*;
 
 public class PremiumAccount extends Client {
     /*Possible issues to consider:
-    * Repeat of names (how to handle and differentiate)
-    * */
-    Map<String, Client> clientDataBase;
-    //Key is "firstName" Value is Client class
+     * Repeat of names (how to handle and differentiate)
+     * */
+    Map<Integer, PremiumAccount> clientDataBase = new HashMap<>();
+    //Key is Client class Value is PremiumAccount class
     private boolean isActive;
     private LocalDate dateOfBirth;
 
     private String userName;
     private char[] passWord;
-    final boolean isAdmin = false;
+
     private TreeMap<Date, Services> previousService;
     private int points;
+    private static Integer userId = 1;
 
     /*CONSTRUCTORS*/
 
-    public PremiumAccount() {
-        super();
+    public PremiumAccount(String firstName, String lastName, String email, String userName) {
+        super(firstName, lastName, email);
         clientDataBase = new HashMap<>();
+        PremiumAccount premiumAccountInfo = new PremiumAccount(userName);
+        clientDataBase.put(userId, premiumAccountInfo);
+        userId++;
+    }
 
+    public PremiumAccount(String userName) {
+    }
+
+    @Override
+    public void returnName() {
+        System.out.println("Welcome back " + getFirstName());
+    }
+
+    @Override
+    public String returnClientInfo() {
+        for (Map.Entry<Integer, PremiumAccount> info : clientDataBase.entrySet()) {
+            Integer key = info.getKey();
+            PremiumAccount value = info.getValue();
+        }
+        return ("Account Holder: " + getFirstName() + " " + getLastName() + " Email: " + getEmail() + " Username: " + getUserName());
     }
 
 
     /*METHODS*/
-    public Map<String, Client> printHashMap() {
-        for (String keyName : clientDataBase.keySet()) {
+    public Map<Integer, PremiumAccount> printHashMap() {
+        for (Integer keyName : clientDataBase.keySet()) {
             Client client = getClientDataBase().get(keyName);
 
         }
+
         return null;
     }
 
+    @Override
+    public String getClientName(Scanner scanner) {
+        return super.getClientName(scanner);
+    }
 
     /*GETTERS AND SETTERS*/
 
-    public Map<String, Client> getClientDataBase() {
+    public Map<Integer, PremiumAccount> getClientDataBase() {
         return clientDataBase;
     }
 
-    public void setClientDataBase(Map<String, Client> clientDataBase) {
+    public void setClientDataBase(Map<Integer, PremiumAccount> clientDataBase) {
         this.clientDataBase = clientDataBase;
     }
 
@@ -56,7 +81,6 @@ public class PremiumAccount extends Client {
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
-
 
 
     public String getUserName() {

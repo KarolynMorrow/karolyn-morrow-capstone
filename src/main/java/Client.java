@@ -1,27 +1,37 @@
+import java.util.Scanner;
+
 public abstract class Client {
 
     private String firstName;
     private String lastName;
     private String email;
+    final boolean isAdmin = false;
 
 
     /*CONSTRUCTORS*/
-    public Client(){
-
-    }
 
     public Client(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
     }
+
+    public Client() {
+
+    }
     /*METHODS*/
 
-    public void returnFullName(){
-        System.out.println(getFirstName() + getLastName());
+    public String getClientName(Scanner scanner) {
+        
+        System.out.println("Name: ");
+        return scanner.nextLine();
     }
 
+    ;
 
+    public abstract void returnName();
+
+    public abstract String returnClientInfo();
 
 
     /*GETTERS AND SETTERS*/

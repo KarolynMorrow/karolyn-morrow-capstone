@@ -1,20 +1,16 @@
-import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Map;
-
 public class Main {
     public static void main(String[] args) {
 
-        Map<String, Client> clientName= new HashMap<>();
+        Client arykah = new GuestAccount("Arykah", "Jones", "arykahj@email.com");
+        Client ty = new PremiumAccount("Ty", "James", "tyjames@email.com", "tyJames");
 
-        int size = clientName.size();
-        System.out.println(size);
+        arykah.returnName();
+        System.out.println(arykah.returnClientInfo());
+        System.out.println(ty.returnClientInfo());
 
+        ty.setLastName("Morrison");
 
-
-
-
-
+        System.out.println(ty.returnClientInfo());
 
 
     }

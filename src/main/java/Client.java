@@ -16,18 +16,15 @@ public abstract class Client {
         this.email = email;
     }
 
+    //take input from client and input into either guestAccount object or premiumAccount object
     public Client() {
-
+        System.out.println("Please input your name and email: ");
+        Scanner input = new Scanner(System.in);
+        String firstName = input.nextLine();
+        String lastName = input.nextLine();
+        String email = input.nextLine();
     }
-    /*METHODS*/
-
-    public String getClientName(Scanner scanner) {
-        
-        System.out.println("Name: ");
-        return scanner.nextLine();
-    }
-
-    ;
+    /*METHODS*/;
 
     public abstract void returnName();
 

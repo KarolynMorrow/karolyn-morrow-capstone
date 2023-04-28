@@ -18,16 +18,20 @@ public class PremiumAccount extends Client {
     private static Integer userId = 1;
 
     /*CONSTRUCTORS*/
-
-    public PremiumAccount(String firstName, String lastName, String email, String userName) {
-        super(firstName, lastName, email);
+//obtain input from client class and input into clientDataBase hashMap as premiumAccountInfo
+    public PremiumAccount() {
+        super();
         clientDataBase = new HashMap<>();
-        PremiumAccount premiumAccountInfo = new PremiumAccount(userName);
+        Scanner clientData = new Scanner(System.in);
+        String firstName = clientData.next();
+        String lastName = clientData.next();
+        String email = clientData.next();
+        System.out.println("Please input a username: ");
+        userName = clientData.next();
+
+        PremiumAccount premiumAccountInfo = new PremiumAccount();
         clientDataBase.put(userId, premiumAccountInfo);
         userId++;
-    }
-
-    public PremiumAccount(String userName) {
     }
 
     @Override
@@ -55,10 +59,6 @@ public class PremiumAccount extends Client {
         return null;
     }
 
-    @Override
-    public String getClientName(Scanner scanner) {
-        return super.getClientName(scanner);
-    }
 
     /*GETTERS AND SETTERS*/
 

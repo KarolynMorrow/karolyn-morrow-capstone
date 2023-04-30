@@ -1,3 +1,5 @@
+package Models;
+
 public class Admin extends PremiumAccount {
     final boolean isAdmin = true;
 

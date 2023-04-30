@@ -1,15 +1,11 @@
+package Models;
+
 import java.time.LocalDate;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.TreeMap;
 
-public class PremiumAccount extends Client {
-    /*Possible issues to consider:
-     * Repeat of names (how to handle and differentiate)
-     * */
-    Map<Integer, PremiumAccount> clientDataBase = new HashMap<>();
-    //Key is Client class Value is PremiumAccount class
+public class PremiumAccount {
+
     private boolean isActive;
     private LocalDate dateOfBirth;
     private String email;
@@ -18,60 +14,27 @@ public class PremiumAccount extends Client {
 
     private TreeMap<Date, Services> previousService;
     private int points;
-    private static Integer userId = 1;
+
 
     /*CONSTRUCTORS*/
 //obtain input from client class constructor and input into clientDataBase hashMap with email and password as premiumAccountInfo
 
     public PremiumAccount(String firstName, String lastName, String email, String userName) {
-        super(firstName, lastName, email);
+
         this.userName = userName;
     }
 
-    public void addPremiumClient(PremiumAccount premiumAccountInfo) {
-        clientDataBase.put(userId, premiumAccountInfo);
-        userId++;
-    }
 
     public PremiumAccount() {
-        super();
-    }
 
-    @Override
-    public void returnName() {
-        System.out.println("Welcome back " + getFirstName());
-    }
-
-    @Override
-    public String returnClientInfo() {
-        for (Map.Entry<Integer, PremiumAccount> info : clientDataBase.entrySet()) {
-            Integer key = info.getKey();
-            PremiumAccount value = info.getValue();
-        }
-        return ("Account Holder: " + getFirstName() + " " + getLastName() + " Email: " + getEmail() + " Username: " + getUserName());
     }
 
 
     /*METHODS*/
-    public Map<Integer, PremiumAccount> printHashMap() {
-        for (Integer keyName : clientDataBase.keySet()) {
-            Client client = getClientDataBase().get(keyName);
 
-        }
-
-        return null;
-    }
 
 
     /*GETTERS AND SETTERS*/
-
-    public Map<Integer, PremiumAccount> getClientDataBase() {
-        return clientDataBase;
-    }
-
-    public void setClientDataBase(Map<Integer, PremiumAccount> clientDataBase) {
-        this.clientDataBase = clientDataBase;
-    }
 
     public boolean isActive() {
         return isActive;
